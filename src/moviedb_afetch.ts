@@ -11,6 +11,9 @@
     // search results DIV (number of movies containing that search phrase)
     let searchResults = document.querySelector("#searchResults") as HTMLDivElement;
  
+    // search hits DIV (number of movies containing that search phrase)
+    let searchHits = document.querySelector("#searchHits") as HTMLDivElement;
+    
      // search results DIV2 (movie Name)
      let searchResults2 = document.querySelector("#searchResults2") as HTMLDivElement;   
 
@@ -59,7 +62,9 @@
                 // Number of search hits (movies found)
                 let hits:string = data.totalResults;
                 if(hits === undefined) { hits = "0"; }
-                searchResults.innerHTML = hits + " hits";                
+                let showHits = hits + " hits";   
+                searchHits.innerHTML = showHits;
+
                 // Movie Name, Year and Type (movie, series etc)
                 searchResults2.innerHTML = "<b>#1 " + data.Search[0].Title + "</b><br>" + data.Search[0].Type + " from " + data.Search[0].Year;               
                 // Movie Poster
