@@ -51,7 +51,6 @@ button.addEventListener('click', function (event) {
                 };
                 movieObject.movie.push(newMovie);
             }
-            console.log(movieObject);
         }, 1000);
     });
 });
