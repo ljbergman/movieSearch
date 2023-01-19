@@ -22,6 +22,9 @@ async function getMovie(searchInput) {
     const data = await response.json();
     return data;
 }
+const movieObject = {
+    movie: []
+};
 button.addEventListener('click', function (event) {
     event.preventDefault();
     loadingGIF.style.display = "block";
@@ -37,6 +40,18 @@ button.addEventListener('click', function (event) {
             searchResults2.innerHTML = "<b>#1 " + data.Search[0].Title + "</b><br>" + data.Search[0].Type + " from " + data.Search[0].Year;
             moviePoster.src = data.Search[0].Poster;
             searchResults4.innerHTML = `<a href="https://www.imdb.com/title/${data.Search[0].imdbID}" target="_blank">IMDB Link</a>`;
+            let newMovie;
+            for (let key in data.Search) {
+                newMovie = {
+                    title: data.Search[key].Title,
+                    type: data.Search[key].Type,
+                    year: data.Search[key].Year,
+                    poster: data.Search[key].Poster,
+                    imdbID: data.Search[key].imdbID
+                };
+                movieObject.movie.push(newMovie);
+            }
+            console.log(movieObject);
         }, 1000);
     });
 });

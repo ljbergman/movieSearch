@@ -49,6 +49,26 @@
      
     }
 
+
+    // movieObject type interface
+    interface movieObject {
+        movie: Array<movieTypes>;
+      }
+
+      // movieTypes interface
+      interface movieTypes {
+        title: string;
+        type: string;
+        year: string;
+        poster: string;
+        imdbID: string;
+      } 
+
+    // Movie object to save movies in, using interface movieObject
+    const movieObject: movieObject = {      
+        movie: []
+    }
+
     button.addEventListener('click', function(event) {
         event.preventDefault();
 
@@ -70,8 +90,23 @@
                 // Movie Poster
                 moviePoster.src = data.Search[0].Poster; 
                 // IMDB Link to the Movie
-                searchResults4.innerHTML = `<a href="https://www.imdb.com/title/${data.Search[0].imdbID}" target="_blank">IMDB Link</a>`;              
+                searchResults4.innerHTML = `<a href="https://www.imdb.com/title/${data.Search[0].imdbID}" target="_blank">IMDB Link</a>`;
                 
+                // Save the first 10 results in movieObject
+                let newMovie: movieTypes;
+                for (let key in data.Search) {
+                        newMovie = { 
+                        title: data.Search[key].Title, 
+                        type: data.Search[key].Type, 
+                        year: data.Search[key].Year, 
+                        poster: data.Search[key].Poster, 
+                        imdbID: data.Search[key].imdbID   
+                    }
+                    movieObject.movie.push(newMovie);
+                }
+                
+                console.log(movieObject);
+
             }, 1000);
         });      
 
