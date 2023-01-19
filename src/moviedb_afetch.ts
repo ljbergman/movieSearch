@@ -56,7 +56,7 @@
                 // Number of search hits (movies found)
                 let hits:string = data.totalResults;
                 if(hits === undefined) { hits = "0"; }
-                searchResults.innerHTML = hits + " träffar";                
+                searchResults.innerHTML = hits + " hits";                
                 // Movie Name, Year and Type (movie, series etc)
                 searchResults2.innerHTML = "<b>#1 " + data.Search[0].Title + "</b><br>" + data.Search[0].Type + " from " + data.Search[0].Year;               
                 // Movie Poster
