@@ -6,4 +6,5 @@ Only the most fitting result will turn up in this first version, including title
 
 Future versions will have some more advanced features.
 
+-- Try for example to search for Forrest Gump or Stranger Things.
 
