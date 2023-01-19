@@ -61,6 +61,15 @@ body {
     font-family: arial; 
     font-size: 18px; 
     padding: 10px;
+    background-color: rgba(255,255,255,0.0);
+
+}
+
+.moviePoster {
+
+    border: 1px solid #ddd; 
+    width: 220px;
+   
 
 }
 
@@ -80,12 +89,12 @@ body {
 
 .field-container {
 
-    opacity: 0.9;
+    
     margin-top: 2%;
     margin-bottom: 2%;
     padding: 20px;
     width: 258px;
-    background-color: #fff;
+    background-color: rgba(255,255,255,0.85);
     border-radius: 12px;
     text-align: center;
 
