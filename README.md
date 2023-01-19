@@ -8,3 +8,5 @@ Future versions will have some more advanced features.
 
 -- Try for example to search for Forrest Gump or Stranger Things.
 
+-- See https://webinno.se/movieSearch/ for the latest deployed version of the website.
+
