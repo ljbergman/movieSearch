@@ -46,7 +46,7 @@
     button.addEventListener('click', function(event) {
         event.preventDefault();
 
-        loadingGIF.style.display = "block"; // show loadingGIF for a minimum of 500 miliseconds (see setTimeout below)
+        loadingGIF.style.display = "block"; // show loadingGIF for a minimum of 1000 miliseconds (see setTimeout below)
 
         // searchField.value = user provided search string, for example Forest Gump 
         getMovie(searchField.value).then((data: any) => {
@@ -64,7 +64,7 @@
                 // IMDB Link to the Movie
                 searchResults4.innerHTML = `<a href="https://www.imdb.com/title/${data.Search[0].imdbID}" target="_blank">IMDB Link</a>`;              
                 
-            }, 500);
+            }, 1000);
         });      
 
    
