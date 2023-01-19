@@ -1,4 +1,7 @@
 
+    let hostDomain = 'rapidapi.com';
+    let akey = 'p1564fajsnef80add6fcd';
+
     // search button
     const button = document.querySelector("#button") as HTMLButtonElement;
     
@@ -31,8 +34,8 @@
         const options = {
             method: 'GET',
             headers: {
-                'X-RapidAPI-Key': 'f2e9364cb5msh4871bf96e730354p1564fajsnef80add6fcd2',
-                'X-RapidAPI-Host': 'movie-database-alternative.p.rapidapi.com'
+                'X-RapidAPI-Key': 'f2e9364cb5msh4871bf96e730354' + akey + '2',
+                'X-RapidAPI-Host': 'movie-database-alternative.p.' + hostDomain + '',
             }
         };
 

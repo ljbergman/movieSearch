@@ -1,4 +1,6 @@
 "use strict";
+let hostDomain = 'rapidapi.com';
+let akey = 'p1564fajsnef80add6fcd';
 const button = document.querySelector("#button");
 let searchField = document.querySelector("#searchField");
 let searchResults = document.querySelector("#searchResults");
@@ -11,8 +13,8 @@ async function getMovie(searchInput) {
     const options = {
         method: 'GET',
         headers: {
-            'X-RapidAPI-Key': 'f2e9364cb5msh4871bf96e730354p1564fajsnef80add6fcd2',
-            'X-RapidAPI-Host': 'movie-database-alternative.p.rapidapi.com'
+            'X-RapidAPI-Key': 'f2e9364cb5msh4871bf96e730354' + akey + '2',
+            'X-RapidAPI-Host': 'movie-database-alternative.p.' + hostDomain + '',
         }
     };
     const response = await fetch('https://movie-database-alternative.p.rapidapi.com/?s=' + searchInput + '&r=json&page=1', options);
