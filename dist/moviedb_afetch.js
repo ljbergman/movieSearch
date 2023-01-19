@@ -25,12 +25,11 @@ button.addEventListener('click', function (event) {
     getMovie(searchField.value).then((data) => {
         setTimeout(function () {
             loadingGIF.style.display = "none";
-            console.log(data);
             let hits = data.totalResults;
             if (hits === undefined) {
                 hits = "0";
             }
-            searchResults.innerHTML = hits + " träffar";
+            searchResults.innerHTML = hits + " hits";
             searchResults2.innerHTML = "<b>#1 " + data.Search[0].Title + "</b><br>" + data.Search[0].Type + " from " + data.Search[0].Year;
             moviePoster.src = data.Search[0].Poster;
             searchResults4.innerHTML = `<a href="https://www.imdb.com/title/${data.Search[0].imdbID}" target="_blank">IMDB Link</a>`;
