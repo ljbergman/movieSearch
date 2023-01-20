@@ -1,4 +1,7 @@
 # movieSearch
+
+This is my first project combining Typescript and AJAX using fetch with async/await.
+
 Simple tool to search for movies and tv series. Not bug tested yet.
 
 Try to search for movies or tv series and see how many hits you get using your chosen search phrase.
