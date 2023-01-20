@@ -1,10 +1,15 @@
 
     let hostDomain = 'rapidapi.com';
     let akey = 'p1564fajsnef80add6fcd';
+    let mNum = 0;
+    
 
     // search button
     const button = document.querySelector("#button") as HTMLButtonElement;
     
+    // next button
+    const button2 = document.querySelector("#button2") as HTMLButtonElement;
+
     // searchField.value = user provided search string
     let searchField = document.querySelector("#searchField") as HTMLInputElement;
    
@@ -25,6 +30,9 @@
 
      // search results DIV4 (IMDB link)
      let searchResults4 = document.querySelector("#searchResults4") as HTMLDivElement;   
+
+     // next Result DIV
+     let nextResult = document.querySelector("#nextResult") as HTMLDivElement;  
 
      // loading GIF
      let loadingGIF = document.querySelector("#loading") as HTMLDivElement;
@@ -69,10 +77,24 @@
         movie: []
     }
 
+    function showMovie(mNum: number):void {
+        let mNum2 = mNum + 1;
+       // Movie Name, Year and Type (movie, series etc)
+       searchResults2.innerHTML = "<b>#" + mNum2 + " " + movieObject.movie[mNum].title + "</b><br>" + movieObject.movie[mNum].type + " from " + movieObject.movie[mNum].year;               
+       // Movie Poster
+       moviePoster.src = movieObject.movie[mNum].poster; 
+       // IMDB Link to the Movie
+       searchResults4.innerHTML = `<a href="https://www.imdb.com/title/${movieObject.movie[mNum].imdbID}" target="_blank">IMDB Link</a>`;
+    }
+
     button.addEventListener('click', function(event) {
         event.preventDefault();
 
         loadingGIF.style.display = "block"; // show loadingGIF for a minimum of 1000 miliseconds (see setTimeout below)
+
+        // Reset the movie array
+        movieObject.movie = [];
+        mNum = 0;
 
         // searchField.value = user provided search string, for example Forest Gump 
         getMovie(searchField.value).then((data: any) => {
@@ -82,15 +104,10 @@
                 // Number of search hits (movies found)
                 let hits:string = data.totalResults;
                 if(hits === undefined) { hits = "0"; }
+                if(parseInt(hits) > 10) { hits = "10"; }
+
                 let showHits = hits + " hits";   
                 searchHits.innerHTML = showHits;
-
-                // Movie Name, Year and Type (movie, series etc)
-                searchResults2.innerHTML = "<b>#1 " + data.Search[0].Title + "</b><br>" + data.Search[0].Type + " from " + data.Search[0].Year;               
-                // Movie Poster
-                moviePoster.src = data.Search[0].Poster; 
-                // IMDB Link to the Movie
-                searchResults4.innerHTML = `<a href="https://www.imdb.com/title/${data.Search[0].imdbID}" target="_blank">IMDB Link</a>`;
                 
                 // Save the first 10 results in movieObject
                 let newMovie: movieTypes;
@@ -104,15 +121,31 @@
                     }
                     movieObject.movie.push(newMovie);
                 }
-                
+
+
+            
+            showMovie(mNum);
+
+            nextResult.style.display = "block";
                 
 
             }, 1000);
         });      
 
    
+
+   
     });
 
+
+    button2.addEventListener('click', function(event) {
+    
+        event.preventDefault();
+        mNum = mNum + 1;
+        if (mNum == movieObject.movie.length) { mNum = 0; }
+        showMovie(mNum);
+
+    });
 
     // ### BOTTEN SLASK ##################
     //console.log(data); 
