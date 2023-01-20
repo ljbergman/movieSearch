@@ -84,6 +84,12 @@ body {
 
 }
 
+#nextResult {
+
+ display: none;
+
+}
+
 .moviePoster {
 
     border: 1px solid #ddd; 
