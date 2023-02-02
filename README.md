@@ -2,7 +2,7 @@
 
 This is my first project combining Typescript and AJAX using fetch with async/await.
 
-Simple tool to search for movies and tv series. Not bug tested yet.
+Simple tool to search for movies and tv series. It has not been bug tested yet.
 
 Try to search for movies or tv series and see how many hits you get using your chosen search phrase.
 Only the 10 most fitting results will turn up in this first version, including title, year, poster and link to corresponding IMDB page.
